@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Eat Da Burgers</h1>
+            <p class="lead">Create a burger by typing in the form. Afterwards, click it to devour it or cook more!</p>
+
+            <form id="btn-createBurger2"> 
+                <div class="form-group">
+                    <label for="burgerInput">Create Burger</label>
+                    <input type="text" class="form-control" id="burgerInput" aria-describedby="emailHelp" placeholder="Burger Name">
+                    <br>
+                    <button type="submit" class="btn btn-primary" id="btn-createBurger">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <h5>Available Burgers!</h5>
+            <p><i>Click a burger to Devour it!</i></p>
+            <ul class="list-group">
+                {{#each burger}}
+                    {{#unless devoured}}
+                        <li class="list-group-item"></li>
+                            <button class="btn btn-lg btn-warning btn-Burger" data-id="{{this.id}}" data-devoured="{{this.devoured}}">
+                                <i class="fas fa-hamburger fa-fw"></i>{{burger_name}}
+                            </button>
+                        </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="col">
+            <h5>Devoured Burgers!</h5>
+            <p><i>Click a burger to Cook it!</i></p>
+            <ul class="list-group">
+                {{#each burger}}
+                    {{#if devoured}}
+                        <li class="list-group-item"></li>
+                            <button class="btn btn-lg btn-danger btn-Burger" data-id="{{this.id}}" data-devoured="{{this.devoured}}">
+                                <i class="fas fa-fire fa-fw"></i>{{burger_name}}
+                            </button>
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+
+</div>
